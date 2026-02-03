@@ -1,31 +1,22 @@
-import React from 'react'
-import './Header.css'
+import React from 'react';
+import './style/Header.css';
 
-const Header = () => {
-    const navList = [
-        {title:'홈', desc:'홈으로 바로가기'},
-        {title:'공지사항', desc:'공지 바로가기'},
-        {title:'이벤트', desc:'이벤트 바로가기'},
-        {title:'커뮤니티', desc:'커뮤니티 바로가기'}
-    ]
+const Header = ({ menu }) => {
   return (
-    <header>
-        <h1>title</h1>
-        <ul className='nav-list'>
-            {navList.map((nav, i)=>(
-                <li key={i}>
-                    <span className='tit'>
-                    {nav.title} 
-                    </span>
-                    -
-                    <span className='desc'>
-                    {nav.desc}
-                    </span>
-                </li>
-            ))}
+    <header className="header-section">
+      <h1 className="site-name">Site Name</h1>
+      <nav>
+        <ul className="nav-list">
+          {menu.map((item, index) => (
+            <li key={index}>
+              <a href={item.path}>{item.label}</a>
+              {index < menu.length - 1 && <span>|</span>}
+            </li>
+          ))}
         </ul>
+      </nav>
     </header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;
