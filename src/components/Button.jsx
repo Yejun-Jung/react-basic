@@ -1,13 +1,22 @@
 import React from 'react'
 
 const Button = ({text, color='gray', children=null}) => {
-  console.log(text, color)
+  // console.log(text, color)
+
+const onClickButton=(e)=> {
+  // console.log(text, color)
+  // console.log(e)
+}
+
   return (
-    <div style={{color:color}}>
-      {text} - {color.toUpperCase()}
-      <div>
-      {children}
-      </div>
+    <div
+    style={{color:color}}
+    onClick={onClickButton}
+    >
+        {text} - {color.toUpperCase()}
+        <div>
+        {children}
+        </div>
     </div>
   )
 }

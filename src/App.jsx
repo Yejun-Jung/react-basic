@@ -2,6 +2,7 @@ import './App.css'
 import Button from './components/Button'
 import Main from './components/Main'
 import Section from './components/Section'
+import Input from './components/Input'
 // content / bgcolor
 
 function App() {
@@ -11,14 +12,25 @@ function App() {
     bgColor:'skyblue'
   }
 
+  const handleChange=(value)=>{
+    console.log("입력중:",value)
+  }
+
   return (
     <>
       <div>
+        <Input
+        inputValue={'hello react'}
+        title={'input title'}
+        placeholder={'입력하세요'}
+        onChange={handleChange}
+        />
+        <hr />
         {/* <Section data={sectionData}/> */}
         <Section {...sectionData}/>
         <hr />
-        <Main content='Main1' bgColor={'pink'}/>
-        <Main content='Main2' bgColor={'pink'}/>
+        <Main content='메인 영역입니다1' bgColor={'pink'}/>
+        <Main content='메인 영역입니다2' bgColor={'pink'}/>
         <Main bgColor={'pink'}/>
         <hr />
         <Button text={'메일'} color={'red'}/>
