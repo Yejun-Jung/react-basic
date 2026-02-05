@@ -1,37 +1,32 @@
-import './App.css'
-import MenuButton from './components/MenuButton'
-import InputCard from './components/InputCard'
-import PostItem from './components/PostItem'
-function App() {
-  const menus = [
-    { id: 1, label: "메일", color: "red" },
-    { id: 2, label: "카페", color: "blue" },
-    { id: 3, label: "블로그", color: "green" },
-  ];
-  const inputInfo = {
-    title: "검색",
-    placeholder: "검색어를 입력하세요",
-  };
-
-  const posts = [
-    { id: 1, title: "React 시작하기", author: "홍길동" },
-    { id: 2, title: "JS 문법 정리", author: "김철수" },
-    { id: 3, title: "CSS 레이아웃", author: "이영희" },
-  ];
-
+import React, { useState } from 'react'
+import Counter from './components/Counter'
+import Exam1 from './components/Exam1'
+import Exam2 from './components/Exam2'
+import Exam3 from './components/Exam3'
+import InputFocus from './components/InputFocus'
+import Counter2 from './components/Counter2'
+import LifeCycle from './components/LifeCycle'
+const App = () => {
+  const [state, setState] = useState(true)
+  const user = {
+    name: 'Alice',
+    age: 21
+  }
   return (
     <div>
-      <h1>메뉴</h1>
-      {menus.map((menu) => (
-      <MenuButton key={menu.id} {...menu} />
-      ))}
+      <h2>useState ,useRef,useEffect연습</h2>
+      <button onClick={()=>setState(true)}>마운트</button>
+      <button onClick={()=>setState(false)}>언마운트</button>
+      {state &&
+        <LifeCycle />
+      }
       <hr />
-      <InputCard {...inputInfo}/>
-      {posts.map((post)=>(
-
-      <PostItem key={post.id} {...post} />
-      ))}
-      <hr />
+      <Counter2 />
+      <InputFocus />
+      <Exam3 />
+      <Exam2 />
+      <Exam1 {...user} />
+      <Counter />
     </div>
   )
 }
